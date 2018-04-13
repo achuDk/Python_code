@@ -1,0 +1,5 @@
+"""多表复合查询："""
+import pymysql
+pymysql.connect(localhost,3306)
+select emp.age,dpt.name from emp,dpt where emp.dpt = dpt.dpt group by emp.age having emp.age > 25 order by emp.age;
+

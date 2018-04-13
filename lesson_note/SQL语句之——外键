@@ -1,0 +1,36 @@
+""" 外键的数据类型必须和被引用的主键的数据类型一致，否则报错
+    被引用的表叫父表（主表），引用了别的表的表叫做子表（从表）
+"""
+#增加外键
+
+在创建表时增加外键
+create table student2 (id TINYINT NOT NULL AUTO_INCREMENT PRIMARY KEY , name VARCHAR(20) ,charger_id TINYINT,FOREIGN KEY (charger_id) REFERENCES studentcharger(id) )ENGINE=INNODB;
+
+使用指令创建外键
+
+alter table student3 ADD CONSTRAINT 'student3_ibfk_1' FOREIGN KEY (charger_id) REFERENCES studentcharger(id);
+
+
+创建外键时可指定参数：
+    级联删除：主表中的被引用的记录被删除，子表中的记录也删除
+        ON DELETE CASCADE
+    删除后子表的值设置为空：主表中的被引用的记录被删除，子表中的记录对应的字段会设置为空值
+        ON DELETE SET NULL
+
+
+
+    # 级联删除——谨慎！
+
+    create table student3 (id TINYINT NOT NULL AUTO_INCREMENT PRIMARY KEY , name VARCHAR(20) ,charger_id TINYINT , CONSTRAINT 'student3_ibfk_1' FOREIGN KEY (charger_id) REFERENCES studentcharger(id) ON DELETE CASCADE)ENGINE=INNODB;
+
+    incert into student3 (name,charger_id) values ('bingbing',1),('dandan',2),('nana',3),('hanhan',4);
+
+
+
+#查看外键名为 student3_ibfk_1
+
+show create table student3;
+
+#删除外键
+
+alter table student3 drop FOREIGN KEY 'student3_ibfk_1';

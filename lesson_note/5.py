@@ -1,0 +1,26 @@
+# file = open('test.txt',encoding='utf8')
+# data = file.read()
+# data1 = file.readable()
+# # print(data)
+# print(data1)
+# # print('第一行：',data2)
+# # print(data2)
+# file.close()
+# file = open('test.txt','r',encoding='utf-8')
+# print(file.read())
+# file.close()
+#
+# file = open('test.txt','r',encoding='utf-8')
+# print('第一行：',file.readline())
+# print('第二行：',file.readline(),end='')
+# print('第三行：',file.readline(),end='')
+# print('第四行：',file.readline(),end='')
+#
+# file = open('test.txt','r',encoding='utf-8')
+# # print(file.readlines())
+# print(file)
+
+
+file = open('test.txt','w',encoding='utf-8')
+data = file.read()
+print(data)

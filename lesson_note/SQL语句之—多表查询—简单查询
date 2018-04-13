@@ -1,0 +1,23 @@
+"""
+多表简单查询：
+1.内连接               ———— 类似于求两个表的交集
+2.外链接               ————
+    2.1 左外链查询      ————
+    2.2 右外链查询      ————
+3.全连接               ————
+"""
+
+#内链接查询
+
+#格式1： select COLUMN_1,COLUMN_2...,COLUMN_N from TABLE_A,TABLE_B where 表达式...
+select employee.id as i,employee.name as n,department.dept as d from employee,department where employee.dept=department.dept AND n='A';
+
+#格式2： select COLUMN_1,COLUMN_2...,COLUMN_N from TABLE_A INNER JOIN TABLE_B ON 表达式... :
+select employee.id as i,employee.name as n,department.dept as d from department INNER JOIN employee ON employee.dept=department.dept AND n='A';
+
+
+
+#外链接查询
+
+#左外链
+#右外链与左外链基本相同
